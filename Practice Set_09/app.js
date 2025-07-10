@@ -9,14 +9,6 @@ app.use((req,res,next)=>{
   console.log("Second Middleware",req.url,req.method)
   next()
 })
-// app.get("/contact",(req,res,next)=>{
-//   console.log("Third Middleware",req.url,req.method)
-//   res.send(`<form action="/submit" method="POST">
-//     <input type="text" placeholder="Name" name="name"/>
-//     <input type="text" placeholder="Email" name="Email"
-//     </form>
-//     <button onclick="">Submit</button>`)
-// })
 app.get("/",(req,res,next)=>{
   console.log("Handling / for GET",req.url,req.method)
   res.send(`<h1>Welcome</h1>`)
