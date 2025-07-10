@@ -24,12 +24,12 @@ app.get("/contact-us",(req,res,next)=>{
     </form>`)
 })
 app.post("/contact-us",(req,res,next)=>{
-  console.log("Handling /contact-us for host GET",req.url,req.method,req.body)
+  console.log("Handling /contact-us for host GET",req.url,req.method,req.body)//parcel
   next()
 })
 app.use(bodyparser.urlencoded())//Parsing request that caused the send of input data from form
 app.post("/contact-us",(req,res,next)=>{
-  console.log("Handling /contact-us for host GET",req.url,req.method,req.body)
+  console.log("Handling /contact-us for host GET",req.url,req.method,req.body)//parcel
   res.send('<h1>we will contact you shortly</h1>')
 })
 const PORT=3000
