@@ -1,29 +1,17 @@
 // const http=require('http')
+const path=require('path')
+const pathutils=require('./utils/pathUtils')
 const express=require("express")
+const bodyparser=require("body-parser")
 const app=express();
+const homePG=require('./routes/home')
+
+const ContacePG=require('./routes/contact_us')
+app.use(express.urlencoded())
+app.use(homePG)
+app.use(ContacePG)
 app.use((req,res,next)=>{
-  console.log("First Middleware",req.url,req.method)
-  next()
-})
-app.use((req,res,next)=>{
-  console.log("Second Middleware",req.url,req.method)
-  next()
-})
-app.get("/",(req,res,next)=>{
-  console.log("Handling / for GET",req.url,req.method)
-  res.send(`<h1>Welcome</h1>`)
-})
-app.get("/contact-us",(req,res,next)=>{
-  console.log("Handling /contact-us for GET",req.url,req.method)
-  res.send(`<form action="/contact-us" method="POST">
-    <input type="text" placeholder="Name" name="name"/>
-    <input type="text" placeholder="Email" name="Email"
-    </form>
-    <input type="Submit"/>`)
-})
-app.post("/contact-us",(req,res,next)=>{
-  console.log("Handling /contact-us for host GET",req.url,req.method)
-  res.send('<h1>we will contact you shortly</h1>')
+  res.sendFile(path.join(pathutils,'Views','page_404.html'))
 })
 const PORT=3000
 app.listen(PORT,()=>{
