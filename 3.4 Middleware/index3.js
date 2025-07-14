@@ -4,8 +4,8 @@ const app = express();
 const port = 3000;
 
 function logger(req,res,next){
-  console.log("Request Method",req.method)
-  console.log("Request url",req.url)
+  console.log("Hello",req.url)
+  console.log("yalo",req.method)
   next()
 }
 

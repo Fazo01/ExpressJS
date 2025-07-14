@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 
-app.use(express.urlencoded())
+app.use(express.urlencoded({extended:true}))//body parser
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
@@ -17,5 +17,5 @@ app.post("/submit",(req,res)=>{
 })
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  console.log(`Listening on port http://localhost:${port}`);
 });
