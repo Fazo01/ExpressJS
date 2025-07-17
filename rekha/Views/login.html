@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    main{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+    }
+    .formBody{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 500px;
+      background-color: rgb(134, 91, 59);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    input{
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      font-size: 25px;
+    }
+     .inputButton{
+      background-color: rgb(170, 131, 102);
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <main >
+      <form action="/dashboard" method="POST" class="formBody">
+        <input type="text" placeholder="Enter Email" name="email">
+        <input type="text" placeholder="Enter Password" name="password">
+        <input class="inputButton" type="submit" value="Submit">
+      </form>
+    </main>
+</body>
+</html>
