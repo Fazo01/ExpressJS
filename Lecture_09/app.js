@@ -1,24 +1,24 @@
-//core module
-const http = require("http");
-//external module
-const express=require('express')
-//local module
-const requestHandler=require('./user')
+//external modules 
+const express=require("express")
 const app=express()
-app.use("/",(req,res,next)=>{
-  console.log("firsy Middleware",req.url,req.method)
+
+
+app.get('/',(req,res,next)=>{//Middleware get only match exact
+  console.log("Hello World")
   next()
 })
-app.post("/submit",(req,res,next)=>{
-  console.log("Second Middleware",req.url,req.method)
-  res.send('<p>Submit</p>')
+app.post('/submit-details',(req,res,next)=>{//Middleware post too
+  console.log("Second Middleware")
+  res.send("<p>Welcome to Submit Details Page</p>")
 })
-app.use("/",(req,res,next)=>{
-  console.log("third Middleware",req.url,req.method)
-  res.send('<p>Submit 3</p>')
+app.use('/',(req,res,next)=>{//Middleware use run first even if we have get
+  console.log("Second Middleware")
+  res.send("<p>Welcome to Complete Coding</p>")
 })
-const server = http.createServer(app)
-const PORT = 3002;
-app.listen(PORT, () => {
-  console.log(`Server is running on port http://localhost:${PORT}`);
-});
+
+
+//Port
+const PORT=3000
+app.listen(PORT,()=>{
+  console.log(`Server is running on port http://localhost:${PORT}`)
+})
