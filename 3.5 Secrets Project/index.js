@@ -10,6 +10,7 @@ const PORT = 3000;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
 function user(req, res, next) {
   const password = req.body["password"];
   if (password === "ILoveProgramming") {

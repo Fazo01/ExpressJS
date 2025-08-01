@@ -1,4 +1,5 @@
-// const http=require('http')
+// 1)Import express , body-parser
+// 2)Create use get
 const express=require("express")
 const bodyparser=require('body-parser')
 const app=express();
