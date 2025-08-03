@@ -1,7 +1,7 @@
 // local module
 const hostRouter=require("./routes/hostRouter")
 const useRouter=require("./routes/useRouter")
-
+const rootDir=require("./utils/pathUtil")
 // External module
 const path=require("path")
 const express=require("express")
@@ -14,7 +14,7 @@ app.use((req,res,next)=>{
 app.use(useRouter)
 app.use("/host",hostRouter)
 app.use((req,res,next)=>{
-  res.sendFile(path.join(__dirname,"Views","page_404.html"))
+  res.status(404).sendFile(path.join(rootDir,"Views","page_404.html"))
 })
 const PORT=3000
 app.listen(PORT,()=>{
