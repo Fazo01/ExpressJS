@@ -1,7 +1,8 @@
 const express=require("express")
 const useRouter=express.Router()
+const path=require("path")
+
 useRouter.get("/",(req,res,next)=>{
-  res.send(`<h1>Add home</h1>
-    <a href="/add-home">Add Home</a>`)
+  res.sendFile(path.join(__dirname,"../","Views","home.html"))
 })
 module.exports=useRouter

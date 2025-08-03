@@ -1,15 +1,12 @@
 const express=require("express");
 const houtRouter=express.Router();
+
+const path=require("path")
+
 houtRouter.get("/add-home",(req,res,next)=>{
-  res.send(`
-    <form action="/add-home" method="POST">
-      <input type="text" placeholder="Enter house name" name="homeName" />
-      <input type="submit"/>
-    </form>
-    `)
+  res.sendFile(path.join(__dirname,"../","Views","addHome.html"))
 })
 houtRouter.post("/add-home",(req,res,next)=>{
-  res.send(`<h1>Home is succesfully added</h1>
-    <a href="/">Go to home</a>`)
+  res.sendFile(path.join(__dirname,"../","Views","homeadd.html"))
 })
 module.exports=houtRouter

@@ -1,7 +1,9 @@
 // local module
 const hostRouter=require("./routes/hostRouter")
 const useRouter=require("./routes/useRouter")
+
 // External module
+const path=require("path")
 const express=require("express")
 const app=express()
 
@@ -10,7 +12,10 @@ app.use((req,res,next)=>{
   next()
 })
 app.use(useRouter)
-app.use(hostRouter)
+app.use("/host",hostRouter)
+app.use((req,res,next)=>{
+  res.sendFile(path.join(__dirname,"Views","page_404.html"))
+})
 const PORT=3000
 app.listen(PORT,()=>{
   console.log(`Server link http://localhost:${PORT}`)
